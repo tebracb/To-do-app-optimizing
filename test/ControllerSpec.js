@@ -193,6 +193,22 @@ describe('controller', function () {
 		it('should add a new todo to the model', function () {
 			// TODO: write test
 
+			setUpModel([]);
+            subject.setView('');
+
+            model.read.calls.reset();
+            model.read.and.callFake(function (callback) {
+                callback([{
+                    title: 'a new todo',
+                    completed: false
+                }]);
+            })
+
+            view.trigger('newTodo', 'a new todo');
+
+            expect(model.read).toHaveBeenCalled();
+            expect(model.create).toHaveBeenCalled(); // Bori: useful?
+
 		});
 
 		it('should add a new todo to the view', function () {
