@@ -163,6 +163,11 @@ describe('controller', function () {
 	it('should highlight "All" filter by default', function () {
 		// TODO: write test
 
+		setUpModel([]);
+
+        subject.setView('');
+        expect(view.render).toHaveBeenCalledWith('setFilter', '');
+
 	});
 
 	it('should highlight "Active" filter when switching to active view', function () {
