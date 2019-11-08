@@ -109,6 +109,12 @@ describe('controller', function () {
 		it('should show completed entries', function () {
 			// TODO: write test
 
+			var todo = { title: 'my todo', completed: true };
+            setUpModel([todo]);
+
+            subject.setView('');
+            expect(view.render).toHaveBeenCalledWith('showEntries', [todo]);
+
 		});
 	});
 
