@@ -214,6 +214,9 @@
 	};
 
 	// Export to window
-	window.app = window.app || {};
+	window.app = window.app || {}; //Bori: IF variable is not defined (or has a falsey value) THEN set it to an empty object.
+									//ELSE do nothing (technically speaking, variable gets assigned to itself)
+									//Namespace - complex object, pointing instead of copying 
+
 	window.app.View = View;
 }(window));

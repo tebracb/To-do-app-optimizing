@@ -272,10 +272,11 @@
 		// Store a reference to the active route, allowing us to re-filter todo
 		// items as they are marked complete or incomplete.
 		this._activeRoute = currentPage;
+		
 
 		if (currentPage === '') {
-			this._activeRoute = 'All';
-		}
+			this._activeRoute = 'All';	
+		} 
 
 		this._filter();
 
