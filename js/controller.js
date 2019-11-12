@@ -240,6 +240,7 @@
 				visible: todos.completed > 0
 			});
 
+			console.log('_updateCount ' + todos.completed + ' ' + todos.total)
 			self.view.render('toggleAll', {checked: todos.completed === todos.total});
 			self.view.render('contentBlockVisibility', {visible: todos.total > 0});
 		});

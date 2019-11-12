@@ -37,6 +37,24 @@ describe('controller', function () {
 		});
 
 		model.update.and.callFake(function (id, updateData, callback) {
+			// The 'real' model.update updates the updateDate in the todo with the given id
+			// The original mock did not do this, so our tests of the toggleAll view functionality failed
+			// because the todo.completed field was never udpated, and thus the controller always called
+			// view.render('toggleAll', { checked: false }) (from controller.js:243)
+			// By mimicking the real logic of the model here we get the ability to test:
+			// 
+			// expect(view.render).toHaveBeenCalledWith('toggleAll', {checked: true});
+		
+			if (id) {
+				for (var i = 0; i < todos.length; i++) {
+					if (todos[i].id === id) {
+						for (var key in updateData) {
+							todos[i][key] = updateData[key];
+						}
+						break;
+					}
+				}
+			}
 			callback();
 		});
 	};
@@ -201,6 +219,18 @@ describe('controller', function () {
 
 		it('should update the view', function () {
 			// TODO: write test
+			
+			var todo = {id: 42, title: 'my todo' };
+			var todo2 = { id: 43, title: 'my todo2' };
+			setUpModel([todo, todo2]);
+
+			subject.setView('');
+
+            view.trigger('toggleAll', {completed: true });
+            
+            // todo: Check that the view.render has been called with elementCompleted
+
+             expect(view.render).toHaveBeenCalledWith('toggleAll', {checked: true});
 
 		});
 	});
@@ -222,9 +252,8 @@ describe('controller', function () {
 
             view.trigger('newTodo', 'a new todo');
 
-			// Chris: Check that model.create was called with the correct title
             expect(model.read).toHaveBeenCalled();
-            expect(model.create).toHaveBeenCalled(); // Bori: useful?
+            expect(model.create).toHaveBeenCalledWith('a new todo', jasmine.any(Function)); 
 
 		});
 
