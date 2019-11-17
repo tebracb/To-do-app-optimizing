@@ -209,7 +209,7 @@ describe('controller', function () {
 			
 		
 			// On the view, triggering the toggleAll event
-			view.trigger('toggleAll', {completed: true });
+			view.trigger('toggleAll', {completed: true});
 			
 			// Check that the model.update was called with the correct parameters
 			expect(model.update).toHaveBeenCalledWith(42, {completed: true}, jasmine.any(Function));
@@ -220,8 +220,8 @@ describe('controller', function () {
 		it('should update the view', function () {
 			// TODO: write test
 			
-			var todo = {id: 42, title: 'my todo' };
-			var todo2 = { id: 43, title: 'my todo2' };
+			var todo = {id: 42, title: 'my todo', completed: false };
+			var todo2 = { id: 43, title: 'my todo2',completed: false };
 			setUpModel([todo, todo2]);
 
 			subject.setView('');
@@ -229,8 +229,9 @@ describe('controller', function () {
             view.trigger('toggleAll', {completed: true });
             
             // todo: Check that the view.render has been called with elementCompleted
-
-             expect(view.render).toHaveBeenCalledWith('toggleAll', {checked: true});
+			expect(view.render).toHaveBeenCalledWith('elementComplete', {id: 42, completed:true});
+			expect(view.render).toHaveBeenCalledWith('elementComplete', {id: 42, completed:true});
+            expect(view.render).toHaveBeenCalledWith('toggleAll', {checked: true});
 
 		});
 	});
