@@ -16,7 +16,7 @@ This todo app is an easy to use app to track todo's. It has a simple user interf
 
 The design of the application follows the MVC (Model, View, Controller) approach in JavaScript. 
 
-Go to the wiki: [Technical description](https://github.com/tebracb/To-do-app-optimizing/wiki) 
+Go to the wiki: (https://github.com/tebracb/To-do-app-optimizing/wiki) 
 
 In the [Technical description](https://github.com/tebracb/To-do-app-optimizing/wiki/Technical-description) you can find more information on the technical details of the project.
 
