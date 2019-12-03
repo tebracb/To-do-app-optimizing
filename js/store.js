@@ -88,6 +88,7 @@
      	// 	newId += charset.charAt(Math.floor(Math.random() * charset.length));
 		// }
 
+		//Bori:
 		//Returns the number of milliseconds that have passed since midnight Jan 1 1970
 		newId = new Date().getTime();
 
