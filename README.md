@@ -20,8 +20,11 @@ Go to the wiki: https://github.com/tebracb/To-do-app-optimizing/wiki
 
 In the [Technical description](https://github.com/tebracb/To-do-app-optimizing/wiki/Technical-description) you can find more information on the technical details of the project.
 
+The generated documentation can be found [here](https://tebracb.github.io/To-do-app-optimizing/docs/)
+
 ### Quickstart:
 
 Download the file and open it in your preferred text editor. Run the following command in the terminal to download the dependencies:
 
 `npm install`
+
