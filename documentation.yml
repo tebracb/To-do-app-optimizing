@@ -1,0 +1,20 @@
+toc:
+  - name: Introduction
+    description: |
+                  Technical documentation of the Todo-app project. The application
+                  is built following the Model View Controller design pattern (see model.js, view.js, controller.js).
+
+                  Top-level file is app.js from where the single model, controller, and view objects are created.
+                  Storage of the todo's is handled by store.js which stores the todo's in the browser's local storage but can easily support different destinations.  
+
+                  The testing framework used in this project is Jasmine. The Spec files can be found under the tests folder.  
+  - Todo
+  - Model
+  - Controller
+  - View
+  
+
+
+  
+
+
